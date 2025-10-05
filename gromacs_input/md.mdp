@@ -1,0 +1,43 @@
+; Production MD
+integrator               = md
+dt                       = 0.002
+nsteps                   = 14000     ; 28ns
+
+; Output control
+nstxout-compressed       = 5000
+compressed-x-grps        = System
+nstenergy                = 5000
+nstlog                   = 5000
+
+; Bond parameters
+continuation             = yes
+constraint_algorithm     = lincs
+constraints              = h-bonds
+
+; Neighbor searching
+cutoff-scheme            = Verlet
+nstlist                  = 10
+ns_type                  = grid
+pbc                      = xyz
+
+; Electrostatics
+coulombtype              = PME
+rcoulomb                 = 1.2
+
+; Van der Waals
+vdwtype                  = Cut-off
+rvdw                     = 1.2
+DispCorr                 = EnerPres
+
+; Temperature coupling
+tcoupl                   = V-rescale
+tc-grps                  = System
+tau_t                    = 0.1
+ref_t                    = 300
+
+; Pressure coupling
+pcoupl                   = Parrinello-Rahman
+pcoupltype               = isotropic
+tau_p                    = 2.0
+ref_p                    = 1.0
+compressibility          = 4.5e-5

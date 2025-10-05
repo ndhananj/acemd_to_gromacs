@@ -1,0 +1,6 @@
+parameters: dhfr.prm
+structure: dhfr.psf
+coordinates: dhfr.pdb
+boxsize: [62.23, 62.23, 62.23]
+thermostat: true
+run: 28ns
